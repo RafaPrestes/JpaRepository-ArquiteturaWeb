@@ -14,44 +14,43 @@ import javax.persistence.Table;
 public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_categoria;
-    private String cat_nome;
-    private String cat_descricao;
+    private int id;
+    private String nome;
+    private String descricao;
     @OneToMany(mappedBy = "categoria")
     private List<Produto> produtos;
 
-    public Categoria(int id_categoria, String cat_nome, String cat_descricao) {
-        this.id_categoria = id_categoria;
-        this.cat_nome = cat_nome;
-        this.cat_descricao = cat_descricao;
+    public Categoria(int id, String nome, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
     }
 
     public Categoria() {
-
     }
 
-    public int getId_categoria() {
-        return id_categoria;
+    public int getId() {
+        return id;
     }
 
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getCat_nome() {
-        return cat_nome;
+    public String getNome() {
+        return nome;
     }
 
-    public void setCat_nome(String cat_nome) {
-        this.cat_nome = cat_nome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getCat_descricao() {
-        return cat_descricao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setCat_descricao(String cat_descricao) {
-        this.cat_descricao = cat_descricao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public List<Produto> getProdutos() {
@@ -64,8 +63,8 @@ public class Categoria {
 
     @Override
     public String toString() {
-        return "Categoria [cat_descricao=" + cat_descricao + ", cat_nome=" + cat_nome + ", id_categoria=" + id_categoria
-                + ", produtos=" + produtos + "]";
+        return "Categoria [ID= " + id + ", Nome= " + nome + ", Descrição= " + descricao + ", Produtos= " + produtos
+                + "]";
     }
 
 }

@@ -14,53 +14,52 @@ import javax.persistence.Table;
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_produto")
-    private int id_produto;
+    @Column(name = "id")
+    private int id;
     @Column(length = 100)
-    private String prod_nome;
-    private int prod_qtd;
+    private String nome;
+    private int qtd;
     @ManyToOne
-    @JoinColumn(name = "id_categoria")
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
-    public Produto(int id_produto, String prod_nome, int prod_qtd) {
-        this.id_produto = id_produto;
-        this.prod_nome = prod_nome;
-        this.prod_qtd = prod_qtd;
+    public Produto(int id, String nome, int qtd) {
+        this.id = id;
+        this.nome = nome;
+        this.qtd = qtd;
     }
 
     public Produto() {
-
     }
 
-    public int getId_produto() {
-        return id_produto;
+    public int getId() {
+        return id;
     }
 
-    public void setId_produto(int id_produto) {
-        this.id_produto = id_produto;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getProd_nome() {
-        return prod_nome;
+    public String getNome() {
+        return nome;
     }
 
-    public void setProd_nome(String prod_nome) {
-        this.prod_nome = prod_nome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public int getProd_qtd() {
-        return prod_qtd;
+    public int getQtd() {
+        return qtd;
     }
 
-    public void setProd_qtd(int prod_qtd) {
-        this.prod_qtd = prod_qtd;
+    public void setQtd(int qtd) {
+        this.qtd = qtd;
     }
 
     @Override
     public String toString() {
-        return "Id: " + id_produto + ", Nome do Produto: " + prod_nome + ", Quantidade: " + prod_qtd + ", Categoria: " +
-                (categoria != null ? categoria.getCat_nome() : "");
+        return "Id: " + id + ", Nome do Produto: " + nome + ", Quantidade: " + qtd + ", Categoria: " +
+                (categoria != null ? categoria.getNome() : "");
     }
 
     public Categoria getCategoria() {
@@ -70,4 +69,5 @@ public class Produto {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
 }
